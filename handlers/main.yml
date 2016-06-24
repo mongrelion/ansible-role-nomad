@@ -1,0 +1,6 @@
+---
+- name: reload unit file
+  command: systemctl daemon-reload
+
+- name: restart nomad
+  service: name=nomad state=restarted

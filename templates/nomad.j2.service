@@ -1,0 +1,11 @@
+[Unit]
+Description=Nomad Scheduler
+Documentation=https://www.nomadproject.io/docs/index.html
+After=network.target
+
+[Service]
+Type=simple
+ExecStart={{ nomad_bin }} agent -dev
+
+[Install]
+WantedBy=multi-user.target

@@ -12,3 +12,30 @@
 
 - name: ensure nomad is executable
   file: path={{ nomad_bin }} mode="a+x"
+
+- name: ensure nomad group is present
+  group: name={{ nomad_group }}
+
+- name: ensure nomad user is present
+  user: name={{ nomad_user }} groups={{ nomad_group }}
+
+- name: ensure config & data dir are present
+  file: path={{ item }} state=directory owner={{ nomad_user }} group={{ nomad_group }}
+  with_items:
+    - "{{ nomad_datadir }}"
+    - "{{ nomad_configdir }}"
+
+- name: ensure config file is present
+  copy: src=files/config.json dest=/etc/nomad/config.json
+  notify:
+    - restart nomad
+
+- name: ensure unit file is present
+  template: src=nomad.j2.service dest=/usr/lib/systemd/system/nomad.service
+  notify:
+    - reload unit file
+    - restart nomad
+
+- name: ensure nomad starts on boot
+  service: name=nomad enabled=yes
+  when: nomad_startonboot
