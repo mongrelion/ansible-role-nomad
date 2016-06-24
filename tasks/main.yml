@@ -1,0 +1,14 @@
+---
+- name: ensure dependencies are installed
+  yum: name=unzip state=present
+
+- name: check for nomad installation
+  stat: path={{ nomad_bin }}
+  register: nomadcheck
+
+- name: get nomad
+  unarchive: src=https://releases.hashicorp.com/nomad/{{ nomad_version }}/nomad_{{ nomad_version }}_linux_amd64.zip copy=no dest=/usr/bin
+  when: not nomadcheck.stat.exists
+
+- name: ensure nomad is executable
+  file: path={{ nomad_bin }} mode="a+x"

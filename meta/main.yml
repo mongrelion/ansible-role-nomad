@@ -1,0 +1,16 @@
+galaxy_info:
+  author: Carlos León
+  description: HashiCorp's Nomad
+  company: Container Solutions
+  license: MIT
+  min_ansible_version: 2.1
+  platforms:
+  - name: EL
+    versions:
+    - 7
+  galaxy_tags:
+    - nomad
+    - scheduler
+    - scheduling
+
+dependencies: []
