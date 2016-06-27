@@ -22,8 +22,9 @@
 - name: ensure config & data dir are present
   file: path={{ item }} state=directory owner={{ nomad_user }} group={{ nomad_group }}
   with_items:
-    - "{{ nomad_datadir }}"
     - "{{ nomad_configdir }}"
+    - "{{ nomad_datadir }}"
+    - "{{ nomad_jobsdir }}"
 
 - name: ensure config file is present
   copy: src=files/config.json dest=/etc/nomad/config.json
