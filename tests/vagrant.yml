@@ -2,5 +2,11 @@
 - hosts: all
   become: yes
   become_user: root
+  vars:
+    nomad_advertise_ip: 10.0.2.15
+    nomad_bind_addr: 0.0.0.0
+    nomad_devmode: yes
+    nomad_start_on_boot: yes
+    nomad_client_network_interface: eth0
   roles:
     - ../nomad

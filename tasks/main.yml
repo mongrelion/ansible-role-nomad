@@ -27,7 +27,7 @@
     - "{{ nomad_jobsdir }}"
 
 - name: ensure config file is present
-  copy: src=files/config.json dest=/etc/nomad/config.json
+  template: src=config.j2.hcl dest=/etc/nomad/config.hcl
   notify:
     - restart nomad
 
@@ -39,4 +39,4 @@
 
 - name: ensure nomad starts on boot
   service: name=nomad enabled=yes
-  when: nomad_startonboot
+  when: nomad_start_on_boot
