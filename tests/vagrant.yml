@@ -8,7 +8,6 @@
     nomad_advertise_ip: 192.168.59.100
     nomad_bind_addr: 0.0.0.0
     nomad_start_on_boot: yes
-    nomad_client_network_interface: eth0
   roles:
     - ../nomad
 
@@ -16,13 +15,13 @@
   become: yes
   become_user: root
   vars:
-    - nomad_server: no
-    - nomad_advertise_ip: 192.168.59.101
-    - nomad_bind_addr: 0.0.0.0
-    - nomad_start_on_boot: yes
-    - nomad_client_network_interface: enp0s8
-    - nomad_raw_exec_enabled: yes
-    - nomad_servers:
+    nomad_server: no
+    nomad_advertise_ip: 192.168.59.101
+    nomad_bind_addr: 0.0.0.0
+    nomad_start_on_boot: yes
+    nomad_client_network_interface: enp0s8
+    nomad_raw_exec_enabled: yes
+    nomad_servers:
       - 192.168.59.100
   roles:
     - ../nomad
