@@ -5,3 +5,4 @@ nomad_bootstrap_expect: 0
 nomad_client_network_interface: eth0
 nomad_devmode: no
 nomad_start_on_boot: no
+nomad_raw_exec_enabled: no
