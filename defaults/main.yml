@@ -1,5 +1,7 @@
 ---
-nomad_advertise_ip: 127.0.0.1
+nomad_http_ip: 127.0.0.1
+nomad_rpc_ip: 127.0.0.1
+nomad_serf_ip: 127.0.0.1
 nomad_bind_addr: 0.0.0.0
 nomad_bootstrap_expect: 0
 nomad_client_network_interface: eth0

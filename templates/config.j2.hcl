@@ -2,7 +2,9 @@ bind_addr = "{{ nomad_bind_addr }}"
 data_dir  = "{{ nomad_datadir }}"
 
 advertise {
-  rpc = "{{ nomad_advertise_ip }}:4647"
+  http = "{{ nomad_http_ip }}:4646"
+  rpc  = "{{ nomad_rpc_ip }}:4647"
+  serf = "{{ nomad_serf_ip }}:4648"
 }
 
 {% if nomad_server %}

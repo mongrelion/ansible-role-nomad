@@ -5,7 +5,9 @@
   vars:
     nomad_server: yes
     nomad_bootstrap_expect: 1
-    nomad_advertise_ip: 192.168.59.100
+    nomad_http_ip: 192.168.59.100
+    nomad_rpc_ip: 192.168.59.100
+    nomad_serf_ip: 192.168.59.100
     nomad_bind_addr: 0.0.0.0
     nomad_start_on_boot: yes
   roles:
@@ -16,8 +18,10 @@
   become_user: root
   vars:
     nomad_server: no
-    nomad_advertise_ip: 192.168.59.101
     nomad_bind_addr: 0.0.0.0
+    nomad_http_ip: 192.168.59.101
+    nomad_rpc_ip: 192.168.59.101
+    nomad_serf_ip: 192.168.59.101
     nomad_start_on_boot: yes
     nomad_client_network_interface: enp0s8
     nomad_raw_exec_enabled: yes
