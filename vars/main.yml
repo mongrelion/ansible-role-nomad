@@ -1,7 +1,7 @@
 ---
 nomad_group: nomad
 nomad_user: nomad
-nomad_version: 0.5.1
+nomad_version: 0.6.2
 nomad_bin: /usr/bin/nomad
 nomad_configdir: /etc/nomad
 nomad_datadir: /var/lib/nomad
