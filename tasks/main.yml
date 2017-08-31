@@ -6,8 +6,11 @@
   stat: path={{ nomad_bin }}
   register: nomadcheck
 
+- set_fact:
+    arch: "{{ 'arm64' if ansible_architecture == 'aarch64' else 'amd64' }}"
+
 - name: get nomad
-  unarchive: src=https://releases.hashicorp.com/nomad/{{ nomad_version }}/nomad_{{ nomad_version }}_linux_amd64.zip copy=no dest=/usr/bin
+  unarchive: src=https://releases.hashicorp.com/nomad/{{ nomad_version }}/nomad_{{ nomad_version }}_linux_{{ arch }}.zip copy=no dest=/usr/bin
   when: not nomadcheck.stat.exists
 
 - name: ensure nomad is executable
